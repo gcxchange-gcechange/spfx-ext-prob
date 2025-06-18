@@ -37,7 +37,7 @@ export default class ProBApplicationCustomizer extends BaseApplicationCustomizer
           const group = groupsResponse.value[0];
           console.log('group', group);
 
-          if (group.visibility === 'Public') {
+          if (group && group.visibility === 'Public') {
             const groupOwners = await this._graphClient.api(`/groups/${group.id}/owners`).select('id,displayName,userPrincipalName').get();
             const groupMembers = await this._graphClient.api(`/groups/${group.id}/members`).select('id,displayName,userPrincipalName').get();
             console.log('groupOwners', groupOwners);
@@ -55,8 +55,7 @@ export default class ProBApplicationCustomizer extends BaseApplicationCustomizer
             console.log('isMember', isMember);
 
             if (!isOwner && !isMember) {
-              console.log("GET OUT OF HERE!!!");
-              window.location.href = window.location.hostname;
+              window.location.href = window.location.origin;
             }
           }
         }
