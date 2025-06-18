@@ -9,7 +9,9 @@
         "35f085df-d686-4191-b304-db04c587469e": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
-            "cacheTime": "300000"
+            "cacheTime": 300000,
+            "debug": true,
+            "unlockOnError": true
           }
         }
       }
@@ -20,7 +22,9 @@
         "35f085df-d686-4191-b304-db04c587469e": {
           "location": "ClientSideExtension.ApplicationCustomizer",
           "properties": {
-            "cacheTime": "300000"
+            "cacheTime": 300000,
+            "debug": false,
+            "unlockOnError": false
           }
         }
       }
