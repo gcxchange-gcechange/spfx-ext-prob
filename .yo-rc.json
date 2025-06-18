@@ -1,0 +1,19 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.16.0",
+    "sdksVersions": {},
+    "version": "1.21.1",
+    "libraryName": "prob",
+    "libraryId": "f1a35060-5723-4f17-b637-a5d9ad843389",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "prob",
+    "solutionShortDescription": "prob description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "extension",
+    "extensionType": "ApplicationCustomizer"
+  }
+}

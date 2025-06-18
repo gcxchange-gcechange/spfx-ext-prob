@@ -1,0 +1,29 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/spfx-serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://devgcx.sharepoint.com/teams/b10001647",
+      "customActions": {
+        "35f085df-d686-4191-b304-db04c587469e": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "cacheTime": "300000"
+          }
+        }
+      }
+    },
+    "proB": {
+      "pageUrl": "https://devgcx.sharepoint.com/teams/b10001647",
+      "customActions": {
+        "35f085df-d686-4191-b304-db04c587469e": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "cacheTime": "300000"
+          }
+        }
+      }
+    }
+  }
+}

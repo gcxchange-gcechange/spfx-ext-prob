@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "pro-b-application-customizer": {
+      "components": [
+        {
+          "entrypoint": "./lib/extensions/proB/ProBApplicationCustomizer.js",
+          "manifest": "./src/extensions/proB/ProBApplicationCustomizer.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ProBApplicationCustomizerStrings": "lib/extensions/proB/loc/{locale}.js"
+  }
+}
