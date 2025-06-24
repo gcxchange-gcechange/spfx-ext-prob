@@ -19,15 +19,15 @@ Once a user is validated for that site they will be cached to local storage for 
 
 ## API Permissions
 
-Microsoft Graph - Group.Read.All
-Microsoft Graph - User.Read
-Microsoft Graph - Sites.Read.All
+- Microsoft Graph - Group.Read.All
+- Microsoft Graph - User.Read
+- Microsoft Graph - Sites.Read.All
 
 ## Extension Settings
 
-`cacheTime` is a `number` in milliseconds that sets how long a validated user will be cached to local storage.
-`debug` is a `boolean` that enables console logs for the extension.
-`unlockOnError` is a `boolean` that will unlock the overlay if the extension fails.
+- `cacheTime` is a `number` in milliseconds that sets how long a validated user will be cached to local storage.
+- `debug` is a `boolean` that enables console logs for the extension.
+- `unlockOnError` is a `boolean` that will unlock the overlay if the extension fails.
 
 ## Disclaimer
 
