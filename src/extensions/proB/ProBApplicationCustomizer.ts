@@ -40,7 +40,6 @@ export default class ProBApplicationCustomizer extends BaseApplicationCustomizer
         window.location.href = window.location.origin;
       }
 
-      this.overlayLock.lock();
       this._graphClient = await this.context.msGraphClientFactory.getClient('3');
 
       try {
@@ -61,6 +60,8 @@ export default class ProBApplicationCustomizer extends BaseApplicationCustomizer
           this.debugLog('group', group);
 
           if (group && group.visibility === 'Public') {
+            this.overlayLock.lock();
+
             const groupOwners = await this._graphClient.api(`/groups/${group.id}/owners`).select('id,displayName,userPrincipalName').get();
             const groupMembers = await this._graphClient.api(`/groups/${group.id}/members`).select('id,displayName,userPrincipalName').get();
 
