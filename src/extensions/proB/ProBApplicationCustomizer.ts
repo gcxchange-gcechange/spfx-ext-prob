@@ -24,6 +24,16 @@ export default class ProBApplicationCustomizer extends BaseApplicationCustomizer
   public async onInit(): Promise<void> {
     this.overlayLock = new OverlayLock();
 
+    await this.validate();
+
+    this.context.application.navigatedEvent.add(this, async () => {
+      await this.validate();
+    });
+
+    return Promise.resolve();
+  }
+
+  private async validate(): Promise<void> {
     if (window.location.href.indexOf(`${window.location.origin}/teams/b`) === 0) {
         this.debugLog('Pro B site detected...')
 
