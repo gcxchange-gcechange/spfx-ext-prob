@@ -6,6 +6,7 @@ import "@pnp/sp/site-users";
 import { MSGraphClientV3 } from '@microsoft/sp-http';
 import { OverlayLock } from './OverlayLock';
 import { SessionCache } from './SessionCache';
+//import './global.scss';
 
 export interface IProBApplicationCustomizerProperties {
   cacheTime: number;
@@ -16,6 +17,9 @@ export interface IProBApplicationCustomizerProperties {
 const REVOKE_FLAG = 0;
 const GRANT_FLAG = 1;
 
+
+
+
 /** A Custom Action which can be run during execution of a Client Side Application */
 export default class ProBApplicationCustomizer extends BaseApplicationCustomizer<IProBApplicationCustomizerProperties> {
   private _graphClient: MSGraphClientV3;
@@ -23,19 +27,36 @@ export default class ProBApplicationCustomizer extends BaseApplicationCustomizer
 
   public async onInit(): Promise<void> {
     this.overlayLock = new OverlayLock();
-
     await this.validate();
-
     this.context.application.navigatedEvent.add(this, async () => {
       await this.validate();
     });
+
+    // // new code for rules
+    // const cssUrl: string = "https://sharepoint.com";
+    // const head: HTMLHeadElement = document.getElementsByTagName("head")[0] || document.documentElement;
+    // let customStyle: HTMLLinkElement = document.createElement("link");
+    // customStyle.setAttribute("rel", "stylesheet");
+    // customStyle.setAttribute("type", "text/css");
+    // customStyle.setAttribute("href", cssUrl);
+    // head.appendChild(customStyle);
 
     return Promise.resolve();
   }
 
   private async validate(): Promise<void> {
     if (window.location.href.indexOf(`${window.location.origin}/teams/b`) === 0) {
-        this.debugLog('Pro B site detected...')
+      this.debugLog('Pro B site detected...');
+
+      // Hide the Rules command - GCCT-901
+      const styleElement: HTMLStyleElement = document.createElement('style');
+      styleElement.innerHTML = `
+        button[data-automationid="rulesCommand"], 
+        .ms-ContextualMenu-item div[title="Rules"] {
+            display: none !important;
+        }
+      `;
+      (document.head || document.getElementsByTagName('head')[0]).appendChild(styleElement);
 
       const cacheVal = SessionCache.get(this.context.pageContext.site.id.toString());
       if (cacheVal === `${this.context.pageContext.aadInfo.userId.toString()}${GRANT_FLAG}`) {
