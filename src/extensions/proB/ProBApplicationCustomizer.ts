@@ -3,9 +3,9 @@ import {
 } from '@microsoft/sp-application-base';
 import "@pnp/sp/webs";
 import "@pnp/sp/site-users";
-import { MSGraphClientV3 } from '@microsoft/sp-http';
-import { OverlayLock } from './OverlayLock';
-import { SessionCache } from './SessionCache';
+//import { MSGraphClientV3 } from '@microsoft/sp-http';
+//import { OverlayLock } from './OverlayLock';
+//import { SessionCache } from './SessionCache';
 //import './global.scss';
 
 export interface IProBApplicationCustomizerProperties {
@@ -14,19 +14,19 @@ export interface IProBApplicationCustomizerProperties {
   unlockOnError: boolean
 }
 
-const REVOKE_FLAG = 0;
-const GRANT_FLAG = 1;
+//const REVOKE_FLAG = 0;
+//const GRANT_FLAG = 1;
 
 
 
 
 /** A Custom Action which can be run during execution of a Client Side Application */
 export default class ProBApplicationCustomizer extends BaseApplicationCustomizer<IProBApplicationCustomizerProperties> {
-  private _graphClient: MSGraphClientV3;
-  private overlayLock: OverlayLock;
+//  private _graphClient: MSGraphClientV3;
+ // private overlayLock: OverlayLock;
 
   public async onInit(): Promise<void> {
-    this.overlayLock = new OverlayLock();
+   // this.overlayLock = new OverlayLock();
     await this.validate();
     this.context.application.navigatedEvent.add(this, async () => {
       await this.validate();
@@ -58,7 +58,7 @@ export default class ProBApplicationCustomizer extends BaseApplicationCustomizer
       `;
       (document.head || document.getElementsByTagName('head')[0]).appendChild(styleElement);
 
-      const cacheVal = SessionCache.get(this.context.pageContext.site.id.toString());
+    /*  const cacheVal = SessionCache.get(this.context.pageContext.site.id.toString());
       if (cacheVal === `${this.context.pageContext.aadInfo.userId.toString()}${GRANT_FLAG}`) {
         this.debugLog('Access confirmed via cache.');
 
@@ -72,7 +72,7 @@ export default class ProBApplicationCustomizer extends BaseApplicationCustomizer
       }
 
       this._graphClient = await this.context.msGraphClientFactory.getClient('3');
-
+      
       try {
         const siteDetails = await this._graphClient.api(`/sites/${this.context.pageContext.site.id}`).select('name').get();
         this.debugLog('siteDetails', siteDetails);
@@ -131,7 +131,7 @@ export default class ProBApplicationCustomizer extends BaseApplicationCustomizer
 
         if (this.properties.unlockOnError)
           this.overlayLock.unlock();
-      }
+      }*/
     }
 
     return Promise.resolve();

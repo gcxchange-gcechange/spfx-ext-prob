@@ -4,7 +4,7 @@
   "https": true,
   "serveConfigurations": {
     "default": {
-      "pageUrl": "https://devgcx.sharepoint.com/teams/b10001647",
+      "pageUrl": "https://devgcx.sharepoint.com.mcas.ms/teams/b10001647",
       "customActions": {
         "35f085df-d686-4191-b304-db04c587469e": {
           "location": "ClientSideExtension.ApplicationCustomizer",
@@ -17,7 +17,7 @@
       }
     },
     "proB": {
-      "pageUrl": "https://devgcx.sharepoint.com/teams/b10001647",
+      "pageUrl": "https://devgcx.sharepoint.com.mcas.ms/teams/b10001647",
       "customActions": {
         "35f085df-d686-4191-b304-db04c587469e": {
           "location": "ClientSideExtension.ApplicationCustomizer",
